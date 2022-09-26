@@ -1,17 +1,29 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
-
 ### Date created
-Include the date you created this project and README file.
+26th September 2022
 
 ### Project Title
-Replace the Project Title
+Intro to Version Control Project
 
 ### Description
-Describe what your project is about and what it does
+This project is an exercise as part of the Udacity Intro to Version Control course. The exercise involves the following activies:
+1. Set up Repository
+2. Improve Documentation by:
+- Creating a documentation branch
+- Update documentation
+- Push commits back up to remote repository.
+3. Refactor Code by:
+- Creating a refactoring branch
+- Refactor Python source code
+- Push commits back up to remote repository.
+4. Merge both documentation and refactoring branches up to master then push to remote.
+
+The use of branches facilitates parallel development of hte documentation and refactoring changes.
 
 ### Files used
 Include the files used
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+As I haven't previously done the BikeShare project, the python source file used here is from:
+[https://www.datainsightonline.com/post/exploring-us-bikeshare-data-project](https://www.datainsightonline.com/post/exploring-us-bikeshare-data-project)
+and the linked GitHub repo
+[https://github.com/ayaamir/Explore-US-Bikeshare-Data](https://github.com/ayaamir/Explore-US-Bikeshare-Data)
