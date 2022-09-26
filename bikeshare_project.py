@@ -12,39 +12,39 @@ weekday_list=['sunday','monday','tuesday','wednesday','thursday','friday','satur
 #function to validate user input
 def check_user_input(user_input,input_type):
     while True:
-            input_user_entered=input(user_input).lower()
-            try:
-                if input_user_entered in ['chicago','new york city','washington'] and input_type == 'c':
-                    break
-                elif input_user_entered in month_list and input_type == 'm':
-                    break
-                elif input_user_entered in weekday_list and input_type == 'd':
-                    break
-                else:
-                    if input_type == 'c':
-                        print("Invalid Input!, input must be: chicago, new york city, or washington")
-                    if input_type == 'm':
-                        print("Invalid Input!, input must be: january, february, march, april, may, june or all")
-                    if input_type == 'd':
-                        print("Invalid Input!, input must be: sunday, ... friday, saturday or all")
-            except ValueError:
-                print("Sorry, your input is wrong")
+        input_user_entered=input(user_input).lower()
+        try:
+            if input_user_entered in ['chicago','new york city','washington'] and input_type == 'c':
+                break
+            elif input_user_entered in month_list and input_type == 'm':
+                break
+            elif input_user_entered in weekday_list and input_type == 'd':
+                break
+            else:
+                if input_type == 'c':
+                    print("Invalid Input!, input must be: chicago, new york city, or washington")
+                if input_type == 'm':
+                    print("Invalid Input!, input must be: january, february, march, april, may, june or all")
+                if input_type == 'd':
+                    print("Invalid Input!, input must be: sunday, ... friday, saturday or all")
+        except ValueError:
+            print("Sorry, your input is wrong")
     return input_user_entered
 
 def get_filters():
-    
+
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # get user input for city (chicago, new york city, washington), and check user input validity
     city = check_user_input("Would you like to see the data for chicago, new york city or washington?\n",'c')
-    # get user input for month (all, january, february, ... , june), and check user input validity  
+    # get user input for month (all, january, february, ... , june), and check user input validity
     month = check_user_input("For filtering data by specific mounth please enter month name from (january, february, march, april, may, june) otherwise enter 'all'\n", 'm')
     # get user input for day of week (all, monday, tuesday, ... sunday), and check user input validity
     day = check_user_input("For filtering data by specific day please enter day name from (sunday, monday, tuesday, wednesday, thursday, friday, saturday) otherwise enter 'all'\n", 'd')
-    
+
     print('-'*40)
     return city, month, day
-   
+
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -66,7 +66,7 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['hour'] = df['Start Time'].dt.hour
-    
+
 
     # filter by month if applicable
     if month != 'all':
@@ -81,7 +81,7 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
-        
+
     return df
 
 def time_stats(df):
@@ -104,7 +104,7 @@ def time_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -128,7 +128,7 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -146,7 +146,7 @@ def trip_duration_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def user_stats(df,city):
     """Displays statistics on bikeshare users."""
 
@@ -155,7 +155,7 @@ def user_stats(df,city):
 
     #Display counts of user types
     print('User Types in Data are: ',df['User Type'].value_counts())
-  
+
 
     #because columns Gender and Birth Year aren't in washington data, we have to ensure that the city is not washington
     if city != 'washington':
@@ -172,10 +172,10 @@ def user_stats(df,city):
         most_common_year = df['Birth Year'].mode()[0]
         print('Most Common Year is: ',most_common_year)
 
-       
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-#view raw data to user     
+#view raw data to user
 def show_row_data(df):
     row=0
     while True:
@@ -188,14 +188,14 @@ def show_row_data(df):
             break
         else: #validate user input
             print("Sorry! You entered Wrong Input, Kindly try Again!")
-            
+
 
 def main():
- 
+
     while True:
-        city,month,day = get_filters()      
+        city,month,day = get_filters()
         df = load_data(city,month,day)
-        
+
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
@@ -204,6 +204,6 @@ def main():
         restart = input('\nWould you like to restart? Enter "y" for yes or "n" for no.\n').lower()
         if restart.lower() != 'y':
             break
-        
+
 if __name__ == "__main__":
-	main()
+    main()
