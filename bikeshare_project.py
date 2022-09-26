@@ -12,6 +12,7 @@ weekday_list=['sunday','monday','tuesday','wednesday','thursday','friday','satur
 
 #function to validate user input
 def check_user_input(user_input,input_type):
+    """Check user input function"""
     while True:
             input_user_entered=input(user_input).lower()
             try:
@@ -33,6 +34,7 @@ def check_user_input(user_input,input_type):
     return input_user_entered
 
 def get_filters():
+    """Get filters"""
     
     print('Hello! Let\'s explore some US bikeshare data!')
     
@@ -178,6 +180,7 @@ def user_stats(df,city):
     print('-'*40)
 #view raw data to user     
 def show_row_data(df):
+    """Show Raw Data"""
     row=0
     while True:
         view_raw_data = input("Would you like to see the raw data? for 'Yes' enter 'Y' and for 'No' enter 'N'.\n").lower()
@@ -192,7 +195,7 @@ def show_row_data(df):
             
 
 def main():
- 
+    """Python main function"""
     while True:
         city,month,day = get_filters()      
         df = load_data(city,month,day)
