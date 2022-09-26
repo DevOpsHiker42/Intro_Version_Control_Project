@@ -20,7 +20,11 @@ This project is an exercise as part of the Udacity Intro to Version Control cour
 The use of branches facilitates parallel development of hte documentation and refactoring changes.
 
 ### Files used
-Include the files used
+| **Filename**         | **Description**                  |
+|----------------------|----------------------------------|
+| README.md            | This file                        |
+| bikeshare_project.py | Python source code (see Credits) |
+| datafile.csv         | Dummy data file                  |
 
 ### Credits
 As I haven't previously done the BikeShare project, the python source file used here is from:
